@@ -56,8 +56,8 @@
         </div>
     </header>
 
-    <section id="home" class="pt-32 pb-16 px-6 scroll-animate">
-        <div class="bg-[#f8f9fb] rounded-[40px] max-w-6xl mx-auto p-8 md:p-14 flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 relative overflow-hidden shadow-lg border border-gray-100">
+    <section id="home" class="pt-24 md:pt-32 pb-12 md:pb-16 px-4 sm:px-6 scroll-animate">
+        <div class="bg-[#f8f9fb] rounded-2xl md:rounded-[40px] max-w-6xl mx-auto p-6 md:p-14 flex flex-col md:flex-row-reverse items-center gap-6 md:gap-12 relative overflow-hidden shadow-lg border border-gray-100">
 
             <div class="hidden md:block absolute -left-24 top-1/2 transform -translate-y-1/2 w-96 h-96 rounded-full bg-gradient-to-tr from-primary/24 via-primary/6 to-transparent filter blur-3xl -z-10"></div>
 
@@ -65,17 +65,17 @@
                 <p class="text-3xl md:text-4xl font-semibold text-gray-900 mb-1">Hi,</p>
 
                 <h1 class="font-extrabold text-gray-900 leading-tight tracking-tight">
-                    <span class="block text-4xl md:text-5xl">I'm <span class="text-primary">Vigin P V</span></span>
-                    <span class="block text-5xl md:text-6xl mt-2">CSE <span class="text-gray-700">(AI &amp; ML)</span> Undergraduate</span>
+                    <span class="block text-3xl sm:text-4xl md:text-5xl">I'm <span class="text-primary">Vigin P V</span></span>
+                    <span class="block text-4xl sm:text-5xl md:text-6xl mt-2">CSE <span class="text-gray-700">(AI &amp; ML)</span> Undergraduate</span>
                 </h1>
 
                 <p class="text-gray-600 mt-4 leading-relaxed max-w-lg text-sm md:text-base">
                     Passionate Computer Science student (AI &amp; ML) focused on learning programming, problem solving and modern technologies. Currently building strong fundamentals in C, Python, HTML and CSS while bridging backend systems with creative digital media.
                 </p>
 
-                <div class="mt-8 flex items-center gap-4">
-                    <a href="#contact" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-lg shadow hover:bg-primary/90">Contact</a>
-                    <a href="#projects" class="inline-flex items-center gap-2 border border-primary text-primary px-5 py-3 rounded-lg hover:bg-primary/10">See Work</a>
+                <div class="mt-6 flex items-center gap-3">
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-primary text-white px-4 py-2.5 text-sm md:px-5 md:py-3 md:text-base rounded-lg shadow hover:bg-primary/90">Contact</a>
+                    <a href="#projects" class="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2.5 text-sm md:px-5 md:py-3 md:text-base rounded-lg hover:bg-primary/10">See Work</a>
                 </div>
 
                 <div class="flex items-center gap-5 mt-6">
@@ -97,56 +97,15 @@
             <div class="md:w-1/2 flex items-center justify-center md:justify-start mt-8 md:mt-0 flex-shrink-0 relative">
                 <!-- Blob-shaped portrait image (no extra shadow). -->
                 <div class="relative z-10 flex items-center justify-center w-full">
-                    <img src="Gemini_Generated_Image_431me5431me5431m.png" alt="Vigin P V" class="w-11/12 sm:w-10/12 md:w-11/12 lg:w-full max-w-[520px] h-auto object-contain">
+                    <img src="Gemini_Generated_Image_431me5431me5431m.png" alt="Vigin P V" class="w-11/12 sm:w-10/12 md:w-11/12 lg:w-full max-w-[360px] md:max-w-[520px] h-auto object-contain">
                 </div>
             </div>
 
         </div>
     </section>
-</section>
 
-    <script>
-        (function(){
-            if(typeof window === 'undefined') return;
-            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const elems = document.querySelectorAll('.scroll-animate');
-            if(prefersReduced){ elems.forEach(el=>el.classList.add('is-visible')); return; }
-            let lastY = window.scrollY;
-            window.addEventListener('scroll', ()=>{ lastY = window.scrollY; }, {passive:true});
-
-            const io = new IntersectionObserver((entries)=>{
-                entries.forEach(entry=>{
-                    if(entry.isIntersecting){
-                        const el = entry.target;
-                        const direction = window.scrollY >= lastY ? 'from-bottom' : 'from-top';
-                        if(!el.classList.contains(direction)) el.classList.add(direction);
-                        // reveal the section container
-                        requestAnimationFrame(()=> el.classList.add('is-visible'));
-
-                        // stagger fade-in of common inner elements
-                        const innerSelectors = 'h1,h2,h3,h4,p,ul,ol,figure,img,button,a,blockquote';
-                        const children = Array.from(el.querySelectorAll(innerSelectors)).filter(c => el.contains(c));
-                        children.forEach((child, i) => {
-                            if(child.closest && child.closest('.no-reveal')) return; // opt-out wrapper
-                            child.classList.add('fade-in-child');
-                            const delay = Math.min(i * 80, 480);
-                            child.style.transitionDelay = delay + 'ms';
-                            if(prefersReduced){
-                                child.classList.add('visible');
-                            } else {
-                                setTimeout(()=> child.classList.add('visible'), delay + 20);
-                            }
-                        });
-
-                        io.unobserve(el);
-                    }
-                });
-            }, {root: null, rootMargin: '0px 0px -12% 0px', threshold: 0.12});
-
-            elems.forEach(el=> io.observe(el));
-        })();
-    </script>
-    <section id="about" class="py-16 px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
+    
+    <section id="about" class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
         <h2 class="text-2xl font-bold text-gray-900 mb-6">About Me</h2>
         <p class="text-gray-600 leading-relaxed text-base max-w-4xl">
            I am a first-year Computer Science Engineering (AI-ML) student at Mentor Engineering College, driven by a passion for bridging complex backend logic with clean, intuitive user experiences. My approach to engineering is highly practical—I don't just study concepts; I build them.
@@ -155,36 +114,36 @@ Currently, I am independently developing SOLWIN, a local service marketplace MVP
         </p>
     </section>
 
-    <section id="skill" class="py-16 px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
+    <section id="skill" class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
         <h2 class="text-2xl font-bold text-gray-900 mb-8">Skills</h2>
         <div class="relative">
-            <div class="flex gap-4 md:gap-6 overflow-x-auto py-4 md:py-6 px-2 snap-x snap-mandatory">
-                    <div class="min-w-[220px] sm:min-w-[240px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
+                    <div class="flex gap-4 md:gap-6 overflow-x-auto py-4 md:py-6 px-2 snap-x snap-mandatory">
+                    <div class="min-w-[180px] sm:min-w-[220px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
                     <h3 class="font-bold text-gray-900 text-base md:text-lg mb-2">fast learning</h3>
                     <p class="text-gray-600 text-sm md:text-sm leading-relaxed">I quickly adapt to new tools, technologies, and creative workflows.
 I like learning by building real projects instead of only studying theory..</p>
                 </div>
-                <div class="min-w-[220px] sm:min-w-[240px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
+                <div class="min-w-[180px] sm:min-w-[220px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
                     <h3 class="font-bold text-gray-900 text-base md:text-lg mb-2">Problem Solving</h3>
                     <p class="text-gray-600 text-sm md:text-sm leading-relaxed">Enjoy solving logical and programming related problems through continuous practice and exploration.</p>
                 </div>
 
-                <div class="min-w-[220px] sm:min-w-[240px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
+                <div class="min-w-[180px] sm:min-w-[220px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
                     <h3 class="font-bold text-gray-900 text-base md:text-lg mb-2">Logical Thinking</h3>
                     <p class="text-gray-600 text-sm md:text-sm leading-relaxed">Developing analytical thinking through coding exercises, projects and practical learning.</p>
                 </div>
 
-                <div class="min-w-[220px] sm:min-w-[240px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
+                <div class="min-w-[180px] sm:min-w-[220px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
                     <h3 class="font-bold text-gray-900 text-base md:text-lg mb-2">Team Collaboration</h3>
                     <p class="text-gray-600 text-sm md:text-sm leading-relaxed">Experienced in working with teams through event coordination and leadership activities.</p>
                 </div>
 
-                <div class="min-w-[220px] sm:min-w-[240px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
+                <div class="min-w-[180px] sm:min-w-[220px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
                     <h3 class="font-bold text-gray-900 text-base md:text-lg mb-2">Creative Thinking</h3>
                     <p class="text-gray-600 text-sm md:text-sm leading-relaxed">Interested in innovative ideas, structured design approaches and improving user experience concepts. And it helped me alot for the MIL competition</p>
                 </div>
 
-                <div class="min-w-[220px] sm:min-w-[240px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
+                <div class="min-w-[180px] sm:min-w-[220px] md:min-w-[280px] snap-start p-4 md:p-6 bg-softBg rounded-2xl flex-shrink-0 h-full flex flex-col justify-between">
                     <h3 class="font-bold text-gray-900 text-base md:text-lg mb-2">Leadership</h3>
                     <p class="text-gray-600 text-sm md:text-sm leading-relaxed">Leading the ongoing SOLWIN marketplace project individually , coordinated the competitions and poster designing team for the trifesta algorythm 2.0 program.</p>
                 </div>
@@ -199,16 +158,16 @@ I like learning by building real projects instead of only studying theory..</p>
         </div>
     </section>
 
-    <section id="learning" class="py-16 px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
+    <section id="learning" class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
         <h2 class="text-2xl font-bold text-gray-900 mb-2">Technical Learning</h2>
         <div class="relative h-auto">
             <div class="flex items-start gap-6 overflow-x-auto py-6 px-2 snap-x snap-mandatory">
-                <div class="min-w-[280px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0 self-start">
+                <div class="min-w-[220px] sm:min-w-[280px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0 self-start">
                     <h3 class="font-bold text-gray-900 text-lg mb-2">Python Programming</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4">Completed practical learning in Python programming including core concepts, OOP, file handling, recursion and modules. Built exercises and mini projects to strengthen fundamentals.</p>
                 </div>
 
-                <div class="min-w-[280px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0 self-start">
+                <div class="min-w-[220px] sm:min-w-[280px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0 self-start">
                     <h3 class="font-bold text-gray-900 text-lg mb-2">Web Development</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4">Exploring HTML/CSS for responsive design and clean UI patterns. Started learning Django for backend integration and full-stack workflows.</p>
                 </div>
@@ -220,7 +179,7 @@ I like learning by building real projects instead of only studying theory..</p>
                         <img src="WhatsApp Image 2026-05-23 at 11.07.13 AM (1).jpeg" alt="Creative Designing Merit" class="w-28 sm:w-32 md:w-36 h-auto rounded-md object-contain border border-gray-200 flex-shrink-0">
                     </div>
                 </div>
-                <div class="min-w-[280px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0 self-start">
+                <div class="min-w-[220px] sm:min-w-[280px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0 self-start">
                     <h3 class="font-bold text-gray-900 text-lg mb-2">Leetcode</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-3">Practicing algorithmic problems to improve problem solving, time complexity understanding and coding efficiency.</p>
                     <a href="https://leetcode.com/u/vigin_pv/" target="_blank" class="text-primary font-semibold text-sm hover:underline">Visit LeetCode Profile &rarr;</a>
@@ -232,7 +191,7 @@ I like learning by building real projects instead of only studying theory..</p>
         </div>
     </section>
 
-    <section id="projects" class="py-16 px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
+    <section id="projects" class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
         <h2 class="text-2xl font-bold text-gray-900 mb-8">Projects</h2>
         
         <div class="bg-softBg rounded-[24px] overflow-hidden flex flex-col md:flex-row">
@@ -253,7 +212,7 @@ I like learning by building real projects instead of only studying theory..</p>
             </div>
             <div class="md:w-1/2 bg-gray-200 min-h-[250px] flex items-center justify-center p-4">
                 <div class="w-full overflow-hidden rounded-lg bg-black">
-                    <video src="WhatsApp Video 2026-05-23 at 12.45.25 PM (1).mp4" controls playsinline preload="metadata" poster="3ecb7166-43ea-469d-9a5f-a8a1b7ce5c2d" class="w-full h-auto max-h-[70vh]">
+                    <video src="WhatsApp Video 2026-05-23 at 12.45.25 PM (1).mp4" controls playsinline preload="metadata" poster="3ecb7166-43ea-469d-9a5f-a8a1b7ce5c2d" class="w-full h-auto max-h-[50vh] md:max-h-[70vh]">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -261,12 +220,12 @@ I like learning by building real projects instead of only studying theory..</p>
         </div>
     </section>
 
-    <section class="py-16 px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
+    <section class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
         <h2 class="text-2xl font-bold text-gray-900 mb-8">Major Contributions & Activities</h2>
         
         <div class="relative">
             <div class="flex items-start gap-6 overflow-x-auto py-4 px-2 snap-x snap-mandatory">
-                <div class="min-w-[300px] md:min-w-[360px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0">
+                                <div class="min-w-[240px] md:min-w-[360px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0">
                     <div class="md:flex md:items-center md:gap-6">
                         <div class="md:w-2/3">
                             <h3 class="font-bold text-gray-900 text-lg mb-2">Leadership</h3>
@@ -285,7 +244,7 @@ I like learning by building real projects instead of only studying theory..</p>
                     </div>
                 </div>
 
-                <div class="min-w-[300px] md:min-w-[360px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0">
+                <div class="min-w-[240px] md:min-w-[360px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0">
                     <div class="md:flex md:items-center md:gap-6">
                         <div class="md:w-2/3">
                             <h3 class="font-bold text-gray-900 text-lg mb-2">Volunteering</h3>
@@ -299,7 +258,7 @@ I like learning by building real projects instead of only studying theory..</p>
                     </div>
                 </div>
 
-                <div class="min-w-[300px] md:min-w-[360px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0">
+                <div class="min-w-[240px] md:min-w-[360px] snap-start p-6 bg-softBg rounded-2xl flex-shrink-0">
                     <div class="md:flex md:items-center md:gap-6">
                         <div class="md:w-2/3">
                             <h3 class="font-bold text-gray-900 text-lg mb-2">Workshops & Hackathons</h3>
@@ -322,12 +281,12 @@ I like learning by building real projects instead of only studying theory..</p>
         </div>
     </section>
 
-    <section id="certifications" class="py-16 px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
+    <section id="certifications" class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto border-b border-gray-100 scroll-animate">
         <h2 class="text-2xl font-bold text-gray-900 mb-2">Certifications</h2>
         <p class="text-gray-600 text-sm mb-10">Verification of Academic & Technical Milestones</p>
         <div class="relative">
             <div class="flex gap-6 overflow-x-auto py-4 px-2 snap-x snap-mandatory">
-                <div class="min-w-[260px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
+                <div class="min-w-[220px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
                     <h3 class="font-bold text-gray-900 mb-1">Mentor Colleges Excellence Award</h3>
                     <p class="text-gray-500 text-xs mb-4">Rank #1 in Branch (8.92 CGPA)</p>
                     <div class="mt-4 overflow-hidden rounded-lg border border-gray-200 flex items-center justify-center">
@@ -335,7 +294,7 @@ I like learning by building real projects instead of only studying theory..</p>
                     </div>
                 </div>
 
-                <div class="min-w-[260px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
+                <div class="min-w-[220px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
                     <h3 class="font-bold text-gray-900 mb-1">Gravita 2K23 STEM Participation</h3>
                     <p class="text-gray-500 text-xs mb-4">St. Thomas College Physics Fest</p>
                     <div class="mt-4 overflow-hidden rounded-lg border border-gray-200 flex items-center justify-center">
@@ -343,7 +302,7 @@ I like learning by building real projects instead of only studying theory..</p>
                     </div>
                 </div>
 
-                <div class="min-w-[260px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
+                <div class="min-w-[220px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
                     <h3 class="font-bold text-gray-900 mb-1">Athletic & Cultural Arts Merits</h3>
                     <p class="text-gray-500 text-xs mb-4">School level Medals & Arts</p>
                     <div class="mt-4 overflow-hidden rounded-lg border border-gray-200 flex items-center justify-center">
@@ -351,7 +310,7 @@ I like learning by building real projects instead of only studying theory..</p>
                     </div>
                 </div>
 
-                <div class="min-w-[260px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
+                <div class="min-w-[220px] md:min-w-[320px] snap-start p-6 bg-softBg rounded-[24px] flex-shrink-0">
                     <div class="md:flex md:items-center md:gap-6">
                         <div class="md:w-2/3">
                             <h3 class="font-bold text-gray-900 mb-2">Technical Certifications</h3>
@@ -369,7 +328,7 @@ I like learning by building real projects instead of only studying theory..</p>
         </div>
     </section>
 
-    <section id="contact" class="py-16 px-6 max-w-5xl mx-auto text-center scroll-animate">
+    <section id="contact" class="py-10 md:py-16 px-4 sm:px-6 max-w-5xl mx-auto text-center scroll-animate">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">Let's Connect</h2>
         <p class="text-gray-600 mb-8 max-w-lg mx-auto">Currently open to internship opportunities. Feel free to reach out to discuss technology, design, or collaboration.</p>
         
@@ -388,6 +347,47 @@ I like learning by building real projects instead of only studying theory..</p>
         <p class="text-xs text-gray-400">&copy; 2026 Vigin P V. Built for professional internship review.</p>
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const elems = document.querySelectorAll('.scroll-animate');
+            if (prefersReduced) {
+                elems.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+            let lastY = window.scrollY;
+            window.addEventListener('scroll', () => { lastY = window.scrollY; }, { passive: true });
+
+            const io = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const direction = window.scrollY >= lastY ? 'from-bottom' : 'from-top';
+                        if (!el.classList.contains(direction)) el.classList.add(direction);
+                        requestAnimationFrame(() => el.classList.add('is-visible'));
+
+                        const innerSelectors = 'h1,h2,h3,h4,p,ul,ol,figure,img,button,a,blockquote';
+                        const children = Array.from(el.querySelectorAll(innerSelectors)).filter(c => el.contains(c));
+                        children.forEach((child, i) => {
+                            if (child.closest && child.closest('.no-reveal')) return;
+                            child.classList.add('fade-in-child');
+                            const delay = Math.min(i * 80, 480);
+                            child.style.transitionDelay = delay + 'ms';
+                            if (prefersReduced) {
+                                child.classList.add('visible');
+                            } else {
+                                setTimeout(() => child.classList.add('visible'), delay + 20);
+                            }
+                        });
+
+                        observer.unobserve(el);
+                    }
+                });
+            }, { root: null, rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+
+            elems.forEach(el => io.observe(el));
+        });
+        </script>
 </body>
 </html>
 
